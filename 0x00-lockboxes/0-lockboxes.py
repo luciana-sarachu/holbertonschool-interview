@@ -2,6 +2,7 @@
 
 """ determines the boxes that can be opened """
 
+
 def canUnlockAll(boxes):
 
     if len(boxes) == 1:
@@ -11,3 +12,5 @@ def canUnlockAll(boxes):
             for ii in boxes[i]:
                 if ii == boxes[i][0]:
                     return True
+                else:
+                    return False
