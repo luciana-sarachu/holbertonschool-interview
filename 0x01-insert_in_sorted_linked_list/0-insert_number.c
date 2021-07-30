@@ -1,39 +1,48 @@
+#include <stdlib.h>
 #include "lists.h"
-
 /**
- * insert_node - insert a number into a sorted singly linked list.
- *@head: head of the node
- *@number: new node number
- * Return: Always 0.
- */
+ * insert_node -add node to list.
+ * @head: head of the sll
+ * @number: integer value to insert
+ * Return: the address of the new node, or NULL if it failed
+ **/
 listint_t *insert_node(listint_t **head, int number)
 {
-listint_t *node, *aux = *head;
-int i;
+	listint_t *newNode, *aux = *head;
 
-if (!node)
-{
-return (NULL);
+	newNode = malloc(sizeof(listint_t));
+	if (newNode == NULL)
+		return (NULL);
+	newNode->n = number;
+	if (*head == NULL)
+	{
+		*head = newNode;
+		newNode->next = NULL;
+		return (newNode);
+	}
+	if (aux->next == NULL)
+	{
+		newNode->next = NULL;
+		aux->next = newNode;
+		return (newNode);
+	}
+	if (number <= aux->n)
+	{
+		newNode->next = aux;
+		*head = newNode;
+		return (newNode);
+	}
+	while (aux->next != NULL)
+	{
+		if (number <= aux->next->n)
+		{
+			newNode->next = aux->next;
+			aux->next = newNode;
+			return (newNode);
+		}
+		aux = aux->next;
+	}
+	aux->next = newNode;
+	newNode->next = NULL;
+	return (newNode);
 }
-node->n = number;
-if (number == 0)
-{
-node->next = *head;
-*head = node;
-}
-else
-{
-for (i = 0; i < number - 1; i++)
-{
-if (!aux || !aux->next)
-{
-return (NULL);
-}
-aux = aux->next;
-}
-node->next = aux->next;
-aux->next = node;
-}
-return (node);
-}
-
