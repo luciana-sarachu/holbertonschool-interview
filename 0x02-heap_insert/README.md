@@ -25,5 +25,5 @@ Write a function that inserts a value into a Max Binary Heap:
 - You have to respect a Max Heap ordering
 - You are allowed to have up to 6 functions in your file
 
-Your file 0-binary_tree_node.c will be compiled during the correction
+Your file 0-binary_tree_node.c will be compiled during the correction.
 
