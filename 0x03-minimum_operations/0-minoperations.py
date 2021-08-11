@@ -4,10 +4,19 @@ Your text editor can execute only two operations in this file: Copy All and Past
 
 def minOperations(n):
 
-"""Given a number n, this method calculates the fewest number of operations needed
- to result in exactly n H characters in the file."""
-    
-    if n <= 0:
-        return 0
-    if n % 2 == 0:
+    """Given a number n, this method calculates the fewest number of operations needed
+    to result in exactly n H characters in the file."""
+   
+    copyPaste = 2
+    onlyPaste = 1
+    numberOfOperations = 2
         
+    if n <= 1:
+        return 0
+
+    while n:    
+        if n % 2 == 0:
+            numberOfOperations = numberOfOperations + copyPaste
+        else:
+            numberOfOperations = numberOfOperations + onlyPaste
+        return numberOfOperations
