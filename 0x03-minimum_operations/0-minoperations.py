@@ -9,17 +9,18 @@ def minOperations(n):
     """Given a number n, this method calculates the fewest number of
     operations needed to result in exactly n H characters in the file."""
 
-    totalH = n
     copyPaste = 2
+    onlyPaste = 1
+    totalH = 1
     numberOfOperations = 0
 
     if n <= 1:
         return 0
 
-    while totalH > 1:
+    while totalH <= n:
         if totalH % 2 == 0:
-            totalH = totalH / copyPaste
             numberOfOperations = numberOfOperations + copyPaste
+            totalH = totalH + copyPaste
         else:
-            copyPaste += 1
+            copyPaste += onlyPaste
     return numberOfOperations
