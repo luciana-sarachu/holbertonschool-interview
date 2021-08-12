@@ -16,7 +16,7 @@ def minOperations(n):
 
     while n:    
         if n % 2 == 0:
-            numberOfOperations = numberOfOperations + copyPaste
+            numberOfOperations = numberOfOperations + copyPaste 
         else:
-            numberOfOperations = numberOfOperations + onlyPaste
-        return numberOfOperations
+            copyPaste += onlyPaste
+    return numberOfOperations
