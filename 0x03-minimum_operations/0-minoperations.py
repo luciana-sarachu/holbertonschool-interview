@@ -1,22 +1,25 @@
 #!/usr/bin/python3
-"""In a text file, there is a single character H. 
-Your text editor can execute only two operations in this file: Copy All and Paste."""
+"""In a text file, there is a single character H.
+Your text editor can execute only two operations in this file:
+Copy All and Paste."""
+
 
 def minOperations(n):
 
-    """Given a number n, this method calculates the fewest number of operations needed
-    to result in exactly n H characters in the file."""
-   
+    """Given a number n, this method calculates the fewest number of
+    operations needed to result in exactly n H characters in the file."""
+
+    totalH = n
     copyPaste = 2
-    onlyPaste = 1
-    numberOfOperations = 2
-        
+    numberOfOperations = 0
+
     if n <= 1:
         return 0
 
-    while n:    
-        if n % 2 == 0:
-            numberOfOperations = numberOfOperations + copyPaste 
+    while totalH > 1:
+        if totalH % 2 == 0:
+            totalH = totalH / copyPaste
+            numberOfOperations = numberOfOperations + copyPaste
         else:
-            copyPaste += onlyPaste
+            copyPaste += 1
     return numberOfOperations
