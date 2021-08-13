@@ -20,6 +20,7 @@ def minOperations(n):
     while totalH > 1:
         if totalH % 2 == 0:
             numberOfOperations = numberOfOperations + copyPaste
+            totalH = totalH / 2
         else:
             numberOfOperations = (numberOfOperations + copyPaste) + onlyPaste
     return numberOfOperations
