@@ -17,13 +17,17 @@ def minOperations(n):
     if n <= 1:
         return 0
 
-    while n:
-        if totalH == n:
-            return numberOfOperations
-        if totalH % 2 == 0:
-            numberOfOperations = numberOfOperations + copyPaste
+    while totalH < n: 
+        if totalH == 1:
+            print(totalH)
+            numberOfOperations += copyPaste
+            totalH = totalH + totalH
+        if totalH % 2 == 0 and totalH * 2 <= n:
+            print(totalH)
+            numberOfOperations += copyPaste
             totalH = totalH + totalH
         else:
-            numberOfOperations = (numberOfOperations + copyPaste) + onlyPaste
-            totalH = totalH + totalH
-                
+            print('entre al else')
+            totalH += totalH / 2
+            numberOfOperations += onlyPaste
+    return numberOfOperations
