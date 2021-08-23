@@ -82,44 +82,5 @@ int main(void)
 
     return (EXIT_SUCCESS);
 }
-alex@~/0x04-sandpiles$ gcc -Wall -Wextra -Werror -pedantic 0-main.c 0-sandpiles.c -o 0-sandpiles
-alex@~/0x04-sandpiles$ ./0-sandpiles 
-3 3 3   1 3 1
-3 3 3 + 3 3 3
-3 3 3   1 3 1
-=
-4 6 4
-6 6 6
-4 6 4
-=
-2 5 2
-5 6 5
-2 5 2
-=
-4 2 4
-2 6 2
-4 2 4
-=
-0 5 0
-5 2 5
-0 5 0
-=
-2 1 2
-1 6 1
-2 1 2
-=
-2 2 2
-2 2 2
-2 2 2
-alex@~/0x04-sandpiles$ cat 1-main.c
-Same as 0-main.c except:
-int grid1[3][3] = {
-        {0, 0, 0},
-        {0, 0, 0},
-        {0, 0, 0}
-    };
-    int grid2[3][3] = {
-        {3, 3, 3},
-        {3, 3, 3},
-        {3, 3, 3}
-    };
+
+
