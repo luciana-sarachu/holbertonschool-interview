@@ -10,16 +10,20 @@ status = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
 nbrOfLines = 0
 size = 0
 
-for line in sys.stdin:
-    metrics = line.split()
-    size += int(metrics[-1])
-    stat = metrics[-2]
-    print("File size: {}".format(size))
-    if stat in status:
-        status[stat] += 1
-        nbrOfLines += 1
-        print("{}: {}".format(stat, status[stat]))
+try:
+    for line in sys.stdin:
+        metrics = line.split()
+        size += int(metrics[-1])
+        stat = metrics[-2]
+        print("File size: {}".format(size))
+        for stat in status:
+            status[stat] += 1
+            nbrOfLines += 1
+            print("{}: {}".format(stat, status[stat]))
         if nbrOfLines == 9 or KeyboardInterrupt:
             print("File size: {}".format(size))
-    else:
-        pass
+        else:
+            pass
+except KeyboardInterrupt:
+        print("File size: {}".format(size))
+        print("File size: {}".format(size))
