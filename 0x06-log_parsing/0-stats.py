@@ -26,4 +26,4 @@ try:
             pass
 except KeyboardInterrupt:
         print("File size: {}".format(size))
-        print("File size: {}".format(size))
+        print("{}: {}".format(stat, status[stat]))
