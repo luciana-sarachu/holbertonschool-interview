@@ -7,7 +7,7 @@
  */
 int check_cycle(listint_t *list)
 {
-	struct listint_s *slow, *fast;
+	listint_t *slow, *fast;
 
 	slow = fast = list;
 	while (slow && fast)
