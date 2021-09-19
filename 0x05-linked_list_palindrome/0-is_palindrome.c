@@ -2,27 +2,27 @@
 
 /**
  * is_palindrome - checks if a singly linked list is a palindrome
- * @h: pointer to head of list
+ * @head: pointer to head of list
  * Return: 0 if it is not a palindrome, 1 if it is a palindrome
  */
-int is_palindrome(listint_t **h)
+int is_palindrome(listint_t **head)
 {
-	listint_t *current;
-	int array[9999], i, j;
+	listint_t *aux;
+	int array[9999], i, ii;
 
-	if (*h == 0)
+	if (*head == 0)
 		return (1);
 
-	current = *h;
+	aux = *head;
 
-	for (i = 0; current != NULL; i++)
+	for (i = 0; aux != NULL; i++)
 	{
-		array[i] = current->n;
-		current = current->next;
+		array[i] = aux->n;
+		aux = aux->next;
 	}
 
-	for (j = 0; j < i; j++)
-		if (array[j] != array[i - j - 1])
+	for (ii = 0; ii < i; ii++)
+		if (array[ii] != array[i - ii - 1])
 			return (0);
 
 	return (1);
