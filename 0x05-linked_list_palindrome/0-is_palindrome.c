@@ -22,6 +22,7 @@ int is_palindrome(listint_t **head)
 	}
 
 	for (ii = 0; ii < i; ii++)
+		/* As i increment I have to subtract 1 to stand at the end of the array */
 		if (array[ii] != array[i - ii - 1])
 			return (0);
 
