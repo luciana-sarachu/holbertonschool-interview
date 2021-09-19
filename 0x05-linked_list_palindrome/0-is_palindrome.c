@@ -8,24 +8,21 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *aux = *head;
-	int array[1024], i = 0, ii = 0, middle;
+	int array[1024], i, ii;
 
-	if (head == NULL)
+	if (*head == NULL)
 		return (1);
 
-	while (aux != NULL)
+	for (i = 0; aux != NULL; i++)
 	{
 		array[i] = aux->n;
 		aux = aux->next;
-		i++;
 	}
-	i--;
-	middle = i / 2;
-	while (i >= middle && ii <= middle)
+	for (ii = 0; ii < i; ii++)
 	{
-		if (array[ii] != array[i])
+		/* As i increment I have to subtract 1 to stand at the end of the array */
+		if (array[ii] != array[i - ii - 1])
 			return (0);
-		i--, ii++;
 	}
 	return (1);
 }
