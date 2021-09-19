@@ -2,28 +2,40 @@
 
 """script that reads stdin line by line and computes metrics"""
 
-import sys
+from sys import stdin
 
-status = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
-          "404": 0, "405": 0, "500": 0}
+status_codes = {"200": 0, "301": 0, "400": 0, "401": 0, "403": 0,
+                "404": 0, "405": 0, "500": 0}
 
-nbrOfLines = 0
 size = 0
 
-try:
-    for line in sys.stdin:
-        metrics = line.split()
-        size += int(metrics[-1])
-        stat = metrics[-2]
-        print("File size: {}".format(size))
-        for stat in status:
-            status[stat] += 1
-            nbrOfLines += 1
-            print("{}: {}".format(stat, status[stat]))
-        if nbrOfLines == 9:
-            print("File size: {}".format(size))
-        else:
-            pass
-except KeyboardInterrupt:
-        print("File size: {}".format(size))
-        print("{}: {}".format(stat, status[stat]))
+
+def print_stats():
+    """Prints the accumulated metrics"""
+    print("File size: {}".format(size))
+    for status in sorted(status_codes.keys()):
+        if status_codes[status]:
+            print("{}: {}".format(status, status_codes[status]))
+
+
+if __name__ == "__main__":
+
+    count = 0
+
+    try:
+        for line in stdin:
+            try:
+                items = line.split()
+                size += int(items[-1])
+                if items[-2] in status_codes:
+                    status_codes[items[-2]] += 1
+            except:
+                pass
+            if count == 9:
+                print_stats()
+                count = -1
+            count += 1
+    except KeyboardInterrupt:
+        print_stats()
+        raise
+    print_stats()
