@@ -19,8 +19,11 @@ void menger(int level)
 				{
 					printf(" ");
 				}
-				printf("#");
-				printf("\n");
+				else
+				{
+					printf("#");
+				}
+			printf("\n");
 		}
 	}
 }
