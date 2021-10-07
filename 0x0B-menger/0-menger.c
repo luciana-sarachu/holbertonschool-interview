@@ -5,3 +5,22 @@
  */
 void menger(int level)
 {
+	/** [Mathematics] xy = pow(x, y) [In programming] **/
+	int col, row, size;
+
+
+	if (level >= 0)
+	{
+		size = pow(3, level);
+		for (col = 0; col < size; col++)
+		{
+			for (row = 0; row < size; row++)
+				if (col == 1 && row == 1)
+				{
+					printf(" ");
+				}
+				printf("#");
+				printf("\n");
+		}
+	}
+}
