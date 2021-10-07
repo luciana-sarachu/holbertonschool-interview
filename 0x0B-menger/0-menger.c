@@ -15,7 +15,7 @@ void menger(int level)
 		for (col = 0; col < size; col++)
 		{
 			for (row = 0; row < size; row++)
-				if (col == 1 && row == 1)
+				if (col % 3 == 1 && row % 3 == 1)
 				{
 					printf(" ");
 				}
