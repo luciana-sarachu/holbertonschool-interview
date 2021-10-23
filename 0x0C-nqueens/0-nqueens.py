@@ -23,4 +23,4 @@ solution = []
 
 
 def nqueens(N):
-        """ The program should print every possible solution to the problem """
+        """ The program should print every possible solution to the problem"""
