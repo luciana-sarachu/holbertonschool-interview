@@ -6,21 +6,21 @@ solucion-reto-de-las-8-reinas-en-python """
 from sys import argv, exit
 
 
-if len(argv) != 2:
-    print("Usage: nqueens N\n")
-    exit(1)
+if __name__ == '__main__':
+    if len(argv) != 2:
+        print("Usage: nqueens N\n")
+        exit(1)
 
-N = argv[1]
-if type(N) is not int:
-    print("N must be a number\n")
-    exit(1)
+    N = argv[1]
+    if type(N) is not int:
+        print("N must be a number\n")
+        exit(1)
 
-if N <= 4:
-    print("N must be at least 4\n")
-    exit(1)
+    if N <= 4:
+        print("N must be at least 4\n")
+        exit(1)
 
-solution = []
+    solution = []
 
-
-def nqueens(N):
-        """ The program should print every possible solution to the problem"""
+    def nqueens(N):
+            """ The program should print every possible solution"""
