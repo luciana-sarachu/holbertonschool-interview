@@ -10,8 +10,11 @@ if len(argv) != 2:
     print("Usage: nqueens N")
     exit(1)
 
-N = int(argv[1])
-if type(N) != int:
+N = argv[1]
+
+try:
+    N = int(N)
+except ValueError:
     print("N must be a number")
     exit(1)
 
