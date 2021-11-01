@@ -7,20 +7,20 @@
  */
 avl_t *sorted_array_to_avl(int *array, size_t size)
 {
-    avl_t *newNodes = NULL, *header = NULL, *left = NULL, *right = NULL;
+	avl_t *newNodes = NULL, *header = NULL, *left = NULL, *right = NULL;
 
-    int middleArray;
+	int middleArray;
 
-    if (array == NULL)
+	if (array == NULL)
 		return (NULL);
 
-    newNodes = malloc(sizeof(avl_t));
+	newNodes = malloc(sizeof(avl_t));
 	if (newNodes == NULL)
 		return (NULL);
 
-    middleArray = size / 2;
+	middleArray = size / 2;
 
-    newNodes->n = array[middleArray];
+	newNodes->n = array[middleArray];
 	newNodes->parent = NULL;
 	newNodes->left = left;
 	newNodes->right = right;
@@ -34,8 +34,3 @@ avl_t *sorted_array_to_avl(int *array, size_t size)
 	*header = *newNodes;
 	return (newNodes);
 }
-
-  
-
-  
-
