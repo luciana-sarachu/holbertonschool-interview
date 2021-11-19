@@ -1,7 +1,5 @@
 #!usr/bin/phyton3
-"""Given a list of non-negative integers representing the heights of
-walls with unit width 1, as if viewing the cross-section of a relief map,
-calculate how many square units of water will be retained after it rains."""
+"""calculate how many square units of water will be retained after it rains"""
 
 
 def rain(walls):
@@ -12,7 +10,7 @@ def rain(walls):
 
     if not walls:
         return 0
-    for i in range(len(walls) - 1):
+    for i in range(len(walls)):
         leftWall = walls[i]
         for ii in range(i):
             leftWall = max(leftWall, walls[ii])
