@@ -1,4 +1,4 @@
-#!usr/bin/phyton3
+#!/usr/bin/phyton3
 """calculate how many square units of water will be retained after it rains"""
 
 
@@ -12,10 +12,15 @@ def rain(walls):
         return 0
     for i in range(len(walls)):
         leftWall = walls[i]
+        # print("first left", leftWall)
         for ii in range(i):
             leftWall = max(leftWall, walls[ii])
+            # print("second left", leftWall)
         rightWall = walls[i]
+        # print("right", rightWall)
         for index in range(i + 1, len(walls)):
             rightWall = max(rightWall, walls[index])
+            # print("second right", rightWall)
         totalRainwater = totalRainwater + (min(leftWall, rightWall) - walls[i])
+        # print("total", totalRainwater)
     return totalRainwater
